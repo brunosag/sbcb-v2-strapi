@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "members",
+  "info": {
+    "singularName": "member",
+    "pluralName": "members",
+    "displayName": "Member",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "areas": {
+      "type": "text"
+    },
+    "googleScholar": {
+      "type": "string"
+    },
+    "orcid": {
+      "type": "string"
+    },
+    "researchGate": {
+      "type": "string"
+    },
+    "lattes": {
+      "type": "string"
+    },
+    "dplp": {
+      "type": "string"
+    },
+    "picture": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

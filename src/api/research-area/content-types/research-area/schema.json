@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "research_areas",
+  "info": {
+    "singularName": "research-area",
+    "pluralName": "research-areas",
+    "displayName": "ResearchArea",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": "text"
+    },
+    "fullTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}
