@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_links_image_links",
+  "info": {
+    "displayName": "Image Link"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

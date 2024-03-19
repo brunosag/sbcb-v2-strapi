@@ -903,6 +903,7 @@ export interface ApiDatasetDataset extends Schema.CollectionType {
     title: Attribute.String;
     image: Attribute.Media;
     description: Attribute.Text;
+    url: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -913,6 +914,39 @@ export interface ApiDatasetDataset extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::dataset.dataset',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGlobalGlobal extends Schema.SingleType {
+  collectionName: 'globals';
+  info: {
+    singularName: 'global';
+    pluralName: 'globals';
+    displayName: 'Global';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    metadata: Attribute.Component<'meta.metadata'>;
+    favicon: Attribute.Media;
+    navbar: Attribute.Component<'layout.navbar'>;
+    footer: Attribute.Component<'layout.footer'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::global.global',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::global.global',
       'oneToOne',
       'admin::user'
     > &
@@ -992,34 +1026,6 @@ export interface ApiMemberMember extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPagePage extends Schema.CollectionType {
-  collectionName: 'pages';
-  info: {
-    singularName: 'page';
-    pluralName: 'pages';
-    displayName: 'Page';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    title: Attribute.String;
-    url: Attribute.String;
-    sections: Attribute.Relation<
-      'api::page.page',
-      'manyToMany',
-      'api::section.section'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1135,11 +1141,6 @@ export interface ApiSectionSection extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     body: Attribute.RichText;
-    pages: Attribute.Relation<
-      'api::section.section',
-      'manyToMany',
-      'api::page.page'
-    >;
     slug: Attribute.String & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1237,9 +1238,9 @@ declare module '@strapi/types' {
       'api::contact.contact': ApiContactContact;
       'api::country.country': ApiCountryCountry;
       'api::dataset.dataset': ApiDatasetDataset;
+      'api::global.global': ApiGlobalGlobal;
       'api::guest.guest': ApiGuestGuest;
       'api::member.member': ApiMemberMember;
-      'api::page.page': ApiPagePage;
       'api::project.project': ApiProjectProject;
       'api::publication.publication': ApiPublicationPublication;
       'api::research-area.research-area': ApiResearchAreaResearchArea;

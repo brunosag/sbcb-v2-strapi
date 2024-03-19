@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_layout_footers",
+  "info": {
+    "displayName": "Footer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "footerLogo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    },
+    "socialLinks": {
+      "displayName": "Social Link",
+      "type": "component",
+      "repeatable": true,
+      "component": "links.social-link"
+    },
+    "contactInfo": {
+      "displayName": "Contact Info",
+      "type": "component",
+      "repeatable": true,
+      "component": "links.contact-info"
+    },
+    "copyrightText": {
+      "type": "string"
+    }
+  }
+}
